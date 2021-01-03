@@ -17,6 +17,7 @@ import { UserComponent } from './components/user/user.component';
 import { UserDetalleComponent } from './components/user/user-detalle/user-detalle.component';
 import { NewPostComponent } from './components/post/new-post/new-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReporteComponent } from './components/reporte/reporte.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PostComponent,
     CommentsComponent,
     UserComponent, 
-    UserDetalleComponent, NewPostComponent
+    UserDetalleComponent, NewPostComponent, ReporteComponent
   ],
   imports: [
     BrowserModule,

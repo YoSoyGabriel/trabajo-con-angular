@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommentsComponent } from './components/post/comments/comments.component';
 import { NewPostComponent } from './components/post/new-post/new-post.component';
 import { PostComponent } from './components/post/post.component'; 
+import { ReporteComponent } from './components/reporte/reporte.component';
 import { UserDetalleComponent } from './components/user/user-detalle/user-detalle.component';
 import { UserComponent } from './components/user/user.component';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'user', children: [
     {path: "list", component: UserComponent},
     {path:"detalle/:id", component: UserDetalleComponent}
-  ]}
+  ]},
+  {path: 'reporte', component : ReporteComponent}
 ];
 
 @NgModule({
