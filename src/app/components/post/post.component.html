@@ -1,6 +1,6 @@
-<div class="container p-4">
+<div class="container my-5">
     <div *ngIf="postsList && postsList.length > 0">
-        <div *ngFor="let post of postFilter | 
+        <div *ngFor="let post of postFilter.slice(startSlice) | 
                             paginate: { id: 'paginator',
                             itemsPerPage: pageSize,
                             currentPage: page,
@@ -22,8 +22,8 @@
                 </mat-card-actions>
             </mat-card>
         </div>
-        <div *ngIf="postFilter && postFilter.length > 0" class="d-flex justify-content-end">
-            <pagination-controls id="paginator" maxSize="10" responsive="true" previousLabel="Atras" nextLabel="Proximo" (pageChange)="handlePageChange($event)">
+        <div *ngIf="postFilter && postFilter.length > 0" class="d-flex justify-content-end w-75">
+            <pagination-controls id="paginator" maxSize="10" responsive="true" previousLabel="Atras" nextLabel="Proximo" (pageChange)="handlePageChange($event)" (pageBoundsCorrection)="pageChanged($event)">
             </pagination-controls>
         </div>
     </div>

@@ -1,13 +1,12 @@
-<div class="container">
-    <header class="fixed-top border-bottom  bg-white px-4">
+<div class="d-flex">
+    <header class="fixed-top border-bottom bg-white px-4">
         <nav class="d-flex justify-content-end p-3">
             <button mat-button [routerLink]="'/post'">Posts</button>
             <button mat-button [routerLink]="'/post/create'">Create Post</button>
             <button mat-button [routerLink]="'/user/list'">Usuarios</button>
         </nav>
     </header>
-    <br>
-    <div class="p-md-5">
+    <div class="container p-0 mt-5">
         <router-outlet></router-outlet>
     </div>
 </div>

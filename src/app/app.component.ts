@@ -7,13 +7,14 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   title = 'trabajo-con-angular';
   showFiller = false;
-  constructor(private ApiService:ApiService){}
+
+  constructor(){}
 
    ngOnInit(){
-     this.ApiService.getAllUsers().subscribe(listUser => {
-       this.ApiService.all_user = listUser; 
-     }); 
    }
+
+
 }
