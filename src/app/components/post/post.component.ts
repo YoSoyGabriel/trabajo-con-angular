@@ -16,9 +16,8 @@ export class PostComponent implements OnInit {
   public postFilter:Post[];
 
   page = 1 ; 
-  pageSize = 6; 
-  total:number; 
-  startSlice:number; 
+  pageSize = 8;  
+  startSlice:number = 1; 
   endSlice:number; 
   count = 0; 
   
@@ -29,16 +28,17 @@ export class PostComponent implements OnInit {
      this.route.paramMap.subscribe(params => {
         if(params.get("id")){
             this.ApiService.getUserPosts(params.get('id')).subscribe(posts => {
-                this.postsList = posts.reverse(); 
-                this.postFilter = this.postsList;
-                this.total = posts.length ; 
-                this.loading != this.loading; 
+                this.postsList = posts; 
+                this.postFilter = posts;
+                this.count = this.postsList.length; 
+                this.loading = !this.loading; 
             });
         } else {
             this.ApiService.getPosts().subscribe(posts => {
               this.postsList = posts; 
-              this.loading = !this.loading; 
-              this.postFilter = posts.slice(this.startSlice, this.endSlice);
+              this.postFilter = posts;
+              this.count = this.postsList.length; 
+              this.loading  = !this.loading ;  
           }); 
         }
      });
@@ -46,14 +46,17 @@ export class PostComponent implements OnInit {
 
 
    handlePageChange(event) {
-    this.loading = !this.loading; 
-    this.postFilter = []; 
-    setTimeout(  () => {
-      this.loading = !this.loading;
-      this.postFilter = this.postsList;  
-      this.page = event;
-      this.startSlice = event * this.pageSize;   
-    }, 1000) 
+      this.loading = !this.loading; 
+      this.postFilter = []; 
+
+      setTimeout(  () => {
+        this.loading = !this.loading;
+        this.postFilter = this.postsList;  
+        this.page = event;
+        this.startSlice = event * this.pageSize;   
+        window.scroll(0, 0);
+      }, 1000) 
   }
+
   
 }

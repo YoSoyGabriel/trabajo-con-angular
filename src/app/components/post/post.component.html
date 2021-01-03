@@ -1,10 +1,10 @@
 <div class="container my-5">
-    <div *ngIf="postsList && postsList.length > 0">
-        <div *ngFor="let post of postFilter.slice(startSlice) | 
+    <div *ngIf="postFilter && postFilter.length > 0">
+        <div *ngFor="let post of postFilter.slice(startSlice, startSlice + pageSize ) | 
                             paginate: { id: 'paginator',
                             itemsPerPage: pageSize,
                             currentPage: page,
-                            totalItems: total }">
+                            totalItems: count }">
             <mat-card class="example-card my-4 w-75 mx-auto bg-white text-dark  shadow-none  border border-1 p-4">
                 <mat-card-header>
                     <!-- <div mat-card-avatar class="example-header-image"></div> -->
@@ -22,7 +22,7 @@
                 </mat-card-actions>
             </mat-card>
         </div>
-        <div *ngIf="postFilter && postFilter.length > 0" class="d-flex justify-content-end w-75">
+        <div class="d-flex justify-content-end w-75">
             <pagination-controls id="paginator" maxSize="10" responsive="true" previousLabel="Atras" nextLabel="Proximo" (pageChange)="handlePageChange($event)" (pageBoundsCorrection)="pageChanged($event)">
             </pagination-controls>
         </div>
