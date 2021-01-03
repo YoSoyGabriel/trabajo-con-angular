@@ -9,9 +9,14 @@ body {
 body {
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
-    background-color: #fbfbfb;
+    background-color: #f2f2f2;
 }
 
 a:hover {
     color: #fbfbfb;
+}
+
+.loading-container {
+    width: 100wh;
+    height: 80vh;
 }
