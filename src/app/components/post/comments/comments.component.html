@@ -1,7 +1,7 @@
 <div class="container p-4">
     <div *ngIf="listComments && listComments.length > 0; else loading">
         <div *ngFor="let comment of listComments">
-            <mat-card class="example-card my-4 w-75 mx-auto">
+            <mat-card class="example-card my-4 w-75 mx-auto bg-white shadow-none border text-dark">
                 <mat-card-header>
                     <mat-card-title>{{comment.email}}</mat-card-title>
                 </mat-card-header>

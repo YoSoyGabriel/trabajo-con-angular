@@ -21,8 +21,8 @@ export class ApiService {
     return this.httpClient.get<User[]>(`${this.API_URL}/users`);
   }
 
-  public getAllUsersById(id:number):Observable<User>{
-    return this.httpClient.get<User>(`${this.API_URL}/users/${id}`);
+  public getAllUsersById(id:string):Observable<any>{
+    return this.httpClient.get<any>(`${this.API_URL}/users/${id}`);
   }
 
   public getPhotos():Observable<Photo[]>{
@@ -40,6 +40,11 @@ export class ApiService {
   public getPosts():Observable<Post[]>{
     return this.httpClient.get<Post[]>(`${this.API_URL}/posts`);
   }
+
+  public getUserPosts(idPost:string):Observable<Post[]>{
+    return this.httpClient.get<Post[]>(`${this.API_URL}/users/${idPost}/posts`);
+  }
+
 
   public getAlbums():Observable<Album[]>{
     return this.httpClient.get<Album[]>(`${this.API_URL}/albums`);

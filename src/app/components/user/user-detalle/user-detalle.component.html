@@ -1,0 +1,47 @@
+<div class="container p-4">
+    <h2>PERFIL DE USUARIO</h2>
+    <hr>
+
+    <button class="btn bg-white shadow-sm text-dark  px-4" [routerLink]="'/user/list'">Ir atras</button>
+
+    <div class="my-4">
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3>Datos:</h3>
+
+                <div class="mb-3">
+                    <b>Nombre: </b> <span> {{user.name}}</span> <br>
+                </div>
+                <div class="mb-3">
+                    <b>Usuario: </b> <span> {{user.username}}</span> <br>
+                </div>
+                <div class="mb-3">
+                    <b>Email: </b> <span> {{user.email}}</span> <br>
+                </div>
+                <div class="mb-3">
+                    <b>Telefono: </b> <span> {{user.phone}}</span> <br>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <h3>Dirrecion:</h3>
+                <div>
+                    <div class="mb-3">
+                        <b>Ciudad:</b> <span> {{user.address.street}}</span> <br>
+                    </div>
+                    <div class="mb-3">
+                        <b>Calle:</b> <span> {{user.address.city}}</span> <br>
+                    </div>
+                    <div class="mb-3">
+                        <b>Apt.:</b> <span> {{user.address.suite}}</span> <br>
+                    </div>
+                    <div class="mb-3">
+                        <b>Zipcode:</b> <span> {{user.address.zipcode}}</span> <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

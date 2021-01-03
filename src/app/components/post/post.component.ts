@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
@@ -13,15 +14,24 @@ export class PostComponent implements OnInit {
 
   public postsList:Post[]; 
   
-  constructor(private ApiService:ApiService) { }
+  constructor(private route: ActivatedRoute,
+              private ApiService:ApiService) { }
 
   ngOnInit(): void {
-     this.ApiService.getPosts().subscribe(posts => {
-        this.postsList = posts; 
-     }); 
+     this.route.paramMap.subscribe(params => {
+        if(params.get("id")){
+            this.ApiService.getUserPosts(params.get('id')).subscribe(posts => {
+                this.postsList = posts; 
+            });
+        } else {
+            this.ApiService.getPosts().subscribe(posts => {
+              this.postsList = posts; 
+          }); 
+        }
+     });
   }
 
-  // public getPostUser(id:number):User{
-  //   return this.ApiService.all_user.filter(x => x.id == id)[0]; 
-  // }
+   public getPostUser(id:number){
+     return this.ApiService.all_user.filter(x => x.id == id)[0].name; 
+   }
 }

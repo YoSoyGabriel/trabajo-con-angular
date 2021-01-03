@@ -16,7 +16,8 @@ import { PostComponent } from './components/post/post.component';
 import { CommentsComponent } from './components/post/comments/comments.component';
 import { AlbumsComponent } from './components/albums/albums.component';
 import { PhotosComponent } from './components/Albums/photos/photos.component';
-import { UserComponent } from './components/user/user.component';
+import { UserComponent } from './components/user/user.component'; 
+import { UserDetalleComponent } from './components/user/user-detalle/user-detalle.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserComponent } from './components/user/user.component';
     CommentsComponent,
     AlbumsComponent,
     PhotosComponent,
-    UserComponent
+    UserComponent, 
+    UserDetalleComponent
   ],
   imports: [
     BrowserModule,
