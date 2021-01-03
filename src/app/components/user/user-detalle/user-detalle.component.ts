@@ -11,13 +11,14 @@ import { ApiService } from 'src/app/services/api.service';
 export class UserDetalleComponent implements OnInit {
 
   user:any; 
+  loading:boolean = true; 
   constructor(private route:ActivatedRoute, private ApiService: ApiService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
         this.ApiService.getAllUsersById(params.get('id')).subscribe(user => {
           this.user = user; 
-          console.log(this.user);
+          this.loading = !this.loading; 
         });
     });
   }

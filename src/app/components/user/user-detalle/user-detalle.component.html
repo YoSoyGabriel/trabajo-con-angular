@@ -1,47 +1,54 @@
-<div class="container p-4">
-    <h2>PERFIL DE USUARIO</h2>
-    <hr>
+<div class="container mt-5">
+    <div *ngIf="user">
+        <h1>PERFIL DE USUARIO</h1>
+        <button class="btn bg-white shadow-sm my-3 text-dark px-4" [routerLink]="'/user/list'">Ir atras</button>
 
-    <button class="btn bg-white shadow-sm text-dark  px-4" [routerLink]="'/user/list'">Ir atras</button>
+        <div class="py-4">
+            <div class="row">
+                <div class="col-12 col-md-5">
+                    <h2>Datos:</h2>
 
-    <div class="my-4">
+                    <div class="mb-3">
+                        <b>Nombre: </b> <span> {{user.name}}</span> <br>
+                    </div>
+                    <div class="mb-3">
+                        <b>Usuario: </b> <span> {{user.username}}</span> <br>
+                    </div>
+                    <div class="mb-3">
+                        <b>Email: </b> <span> {{user.email}}</span> <br>
+                    </div>
+                    <div class="mb-3">
+                        <b>Telefono: </b> <span> {{user.phone}}</span> <br>
+                    </div>
+                </div>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <h3>Datos:</h3>
+                <div class="col-12 col-md-5 my-3 my-md-0">
+                    <h2>Dirrecion:</h2>
+                    <div>
+                        <div class="mb-3">
+                            <b>Ciudad:</b> <span> {{user.address.street}}</span> <br>
+                        </div>
+                        <div class="mb-3">
+                            <b>Calle:</b> <span> {{user.address.city}}</span> <br>
+                        </div>
+                        <div class="mb-3">
+                            <b>Apt.:</b> <span> {{user.address.suite}}</span> <br>
+                        </div>
+                        <div class="mb-3">
+                            <b>Zipcode:</b> <span> {{user.address.zipcode}}</span> <br>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="mb-3">
-                    <b>Nombre: </b> <span> {{user.name}}</span> <br>
-                </div>
-                <div class="mb-3">
-                    <b>Usuario: </b> <span> {{user.username}}</span> <br>
-                </div>
-                <div class="mb-3">
-                    <b>Email: </b> <span> {{user.email}}</span> <br>
-                </div>
-                <div class="mb-3">
-                    <b>Telefono: </b> <span> {{user.phone}}</span> <br>
-                </div>
             </div>
-
-            <div class="col-12 col-md-6">
-                <h3>Dirrecion:</h3>
-                <div>
-                    <div class="mb-3">
-                        <b>Ciudad:</b> <span> {{user.address.street}}</span> <br>
-                    </div>
-                    <div class="mb-3">
-                        <b>Calle:</b> <span> {{user.address.city}}</span> <br>
-                    </div>
-                    <div class="mb-3">
-                        <b>Apt.:</b> <span> {{user.address.suite}}</span> <br>
-                    </div>
-                    <div class="mb-3">
-                        <b>Zipcode:</b> <span> {{user.address.zipcode}}</span> <br>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
+    <ng-template [ngIf]="loading">
+        <div class="d-flex justify-content-center loading-container">
+            <div class="align-self-center">
+                <mat-spinner></mat-spinner>
+                <p class="mt-4">LOADING POSTS....</p>
+            </div>
+        </div>
+    </ng-template>
 </div>

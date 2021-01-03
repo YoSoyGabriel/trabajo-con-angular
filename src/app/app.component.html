@@ -1,9 +1,14 @@
 <div class="d-flex">
     <header class="fixed-top border-bottom bg-white px-4">
-        <nav class="d-flex justify-content-end p-3">
-            <button mat-button [routerLink]="'/post'">Posts</button>
-            <button mat-button [routerLink]="'/post/create'">Create Post</button>
-            <button mat-button [routerLink]="'/user/list'">Usuarios</button>
+        <nav class="d-flex justify-content-between p-3 w-100">
+            <div class="d-none d-md-block">
+                <h1>POSTER</h1>
+            </div>
+            <div>
+                <button mat-button [routerLink]="'/post'">Posts</button>
+                <button mat-button [routerLink]="'/post/create'">Create Post</button>
+                <button mat-button [routerLink]="'/user/list'">Usuarios</button>
+            </div>
         </nav>
     </header>
     <div class="container p-0 mt-5">

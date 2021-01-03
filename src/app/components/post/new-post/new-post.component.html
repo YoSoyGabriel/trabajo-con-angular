@@ -1,9 +1,7 @@
-<div class="container p-md-4">
-    <h1>CREAR UN NUEVO POST</h1>
-    <hr>
-    <div class="w-75 mx-auto">
-        <form [formGroup]="postForm" (ngSubmit)="crearPost(postForm)" class="card p-3 p-md-5">
-            <h3>CREAR POST ANONIMO</h3>
+<div class="container mt-5 p-md-4 text-center">
+    <div class="">
+        <form [formGroup]="postForm" (ngSubmit)="crearPost(postForm)" class="card p-3 p-md-5 mx-auto">
+            <h1>CREAR UN POST</h1>
             <div class="form-group m-2">
                 <input type="text" formControlName="title" placeholder="titulo" class="form-control">
             </div>
