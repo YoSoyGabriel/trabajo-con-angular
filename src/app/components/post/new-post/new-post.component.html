@@ -4,9 +4,15 @@
             <h1>CREAR UN POST</h1>
             <div class="form-group m-2">
                 <input type="text" formControlName="title" placeholder="titulo" class="form-control">
+                <div *ngIf="postForm.get('title').touched && postForm.get('title').invalid">
+                    <p class="text-danger">Este campo es obligatorio.</p>
+                </div>
             </div>
             <div class="form-group m-2">
                 <input type="text" formControlName="body" placeholder="Escribir su contenido" class="form-control">
+                <div *ngIf="postForm.get('body').touched && postForm.get('body').invalid">
+                    <p class="text-danger">Este campo es obligatorio.</p>
+                </div>
             </div>
             <div class="form-group m-2">
                 <button type="submit" [disabled]="postForm.invalid" class="btn btn-primary px-4">Crear post</button>
