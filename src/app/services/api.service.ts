@@ -11,32 +11,41 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ApiService {
-  API_URL = "https://jsonplaceholder.typicode.com"; 
+  API_URL = "https://jsonplaceholder.typicode.com";  
+  public all_user: User[]; 
 
   constructor(private httpClient:HttpClient) { }
 
   
-  public getAllUsers():Observable<User>{
-    return this.httpClient.get<User>(`${this.API_URL}/users`);
+  public getAllUsers():Observable<User[]>{
+    return this.httpClient.get<User[]>(`${this.API_URL}/users`);
   }
 
-  public getPhotos():Observable<Photo>{
-    return this.httpClient.get<Photo>(`${this.API_URL}/photos`);
+  public getAllUsersById(id:number):Observable<User>{
+    return this.httpClient.get<User>(`${this.API_URL}/users/${id}`);
   }
 
-  public getTodos():Observable<Todo>{
-    return this.httpClient.get<Todo>(`${this.API_URL}/todos`);
+  public getPhotos():Observable<Photo[]>{
+    return this.httpClient.get<Photo[]>(`${this.API_URL}/photos`);
   }
 
-  public getComments():Observable<Comment>{
-    return this.httpClient.get<Comment>(`${this.API_URL}/comments`);
+  public getTodos():Observable<Todo[]>{
+    return this.httpClient.get<Todo[]>(`${this.API_URL}/todos`);
   }
 
-  public getPosts():Observable<Post>{
-    return this.httpClient.get<Post>(`${this.API_URL}/posts`);
+  public getComments(id:string):Observable<Comment[]>{
+    return this.httpClient.get<Comment[]>(`${this.API_URL}/comments?postId=${id}`);
   }
 
-  public getAlbums():Observable<Album>{
-    return this.httpClient.get<Album>(`${this.API_URL}/albums`);
+  public getPosts():Observable<Post[]>{
+    return this.httpClient.get<Post[]>(`${this.API_URL}/posts`);
+  }
+
+  public getAlbums():Observable<Album[]>{
+    return this.httpClient.get<Album[]>(`${this.API_URL}/albums`);
+  }
+
+  public getAlbumPhotos(idAlbum:string):Observable<Photo[]>{
+    return this.httpClient.get<Photo[]>(`${this.API_URL}/albums/${idAlbum}/photos`);
   }
 }

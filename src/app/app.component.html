@@ -1,0 +1,10 @@
+<header class="fixed-top bg-white">
+    <nav class="d-flex justify-content-end p-4">
+        <button mat-button [routerLink]="'/posts'">Posts</button>
+        <button mat-button [routerLink]="'/album/list'">Ulbums</button>
+        <button mat-button [routerLink]="'/users/list'">Usuarios</button>
+    </nav>
+</header>
+<div class="p-5">
+    <router-outlet></router-outlet>
+</div>

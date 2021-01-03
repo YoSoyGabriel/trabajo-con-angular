@@ -1,0 +1,24 @@
+<div class="container p-4">
+    <div *ngIf="listComments && listComments.length > 0; else loading">
+        <div *ngFor="let comment of listComments">
+            <mat-card class="example-card my-4 w-75 mx-auto">
+                <mat-card-header>
+                    <mat-card-title>{{comment.email}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{comment.body}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <ng-template #loading>
+        <div class="d-flex justify-content-center loading-container">
+            <div class="align-self-center">
+                <mat-spinner></mat-spinner>
+                <p class="mt-4">LOADING POSTS....</p>
+            </div>
+        </div>
+    </ng-template>
+</div>

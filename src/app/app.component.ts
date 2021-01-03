@@ -8,12 +8,12 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit {
   title = 'trabajo-con-angular';
-
+  showFiller = false;
   constructor(private ApiService:ApiService){}
 
    ngOnInit(){
-      this.ApiService.getPhotos().subscribe(res => {
-        console.log(res[1]);
-      }); 
+     this.ApiService.getAllUsers().subscribe(listUser => {
+       this.ApiService.all_user = listUser; 
+     }); 
    }
 }
