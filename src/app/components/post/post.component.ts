@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/Post';
 import { ApiService } from 'src/app/services/api.service';
 
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -25,8 +26,13 @@ export class PostComponent implements OnInit {
               private ApiService:ApiService) { }
 
   ngOnInit(): void {
+    // obtener el id que se pasa por la url 
+
      this.route.paramMap.subscribe(params => {
+
+       // determinar si el esta ruta esta reciviendo una id
         if(params.get("id")){
+          // si obtengo la id entonces debo obtener la informacion
             this.ApiService.getUserPosts(params.get('id')).subscribe(posts => {
                 this.postsList = posts; 
                 this.postFilter = posts;
@@ -34,6 +40,8 @@ export class PostComponent implements OnInit {
                 this.loading = !this.loading; 
             });
         } else {
+           // encaso de no tener una id, deberea llamar el metodo getPost().
+           // El metodo getPosts() retorna un arreglo de posts 
             this.ApiService.getPosts().subscribe(posts => {
               this.postsList = posts; 
               this.postFilter = posts;
@@ -44,7 +52,9 @@ export class PostComponent implements OnInit {
      });
   }
 
-
+  // recive como parametro la pagina a la que desea ir. 
+  //  luego carga los datos para esa pagina..
+  
    handlePageChange(event) {
       this.loading = !this.loading; 
       this.postFilter = []; 

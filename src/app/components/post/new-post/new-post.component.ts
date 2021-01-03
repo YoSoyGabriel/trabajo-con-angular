@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class NewPostComponent implements OnInit {
 
+
   postForm:FormGroup; 
   constructor(private ApiService:ApiService,
               private formBuilder:FormBuilder,
@@ -17,6 +18,9 @@ export class NewPostComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    // crear los controladores y el fromGroup 
+    // deseita validar usando el module Validators 
     this.postForm = this.formBuilder.group({
       title: new FormControl('', Validators.required),
       body: new FormControl('', Validators.required),
@@ -24,6 +28,9 @@ export class NewPostComponent implements OnInit {
     });
   }
 
+// resive un parametro con el valor que tiene el formGroup (postForm).
+// luego  esa informacion  se pasa al metodo createPost().
+// el metodo create post envia la informacion al servidor atraves de la api.
 
   crearPost(data:any){
     this.ApiService.createPost(data.value).subscribe(res => {

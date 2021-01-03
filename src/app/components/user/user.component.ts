@@ -9,14 +9,16 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class UserComponent implements OnInit {
 
+  // guardar el listado de usuarios en esta variable.
   listUsers:User[]; 
   displayedColumns: string[] = ['name', 'username', 'email', 'phone'];
   constructor(private ApiService: ApiService) { }
 
   ngOnInit(): void {
+
+    // obtener una lista de usuarios 
     this.ApiService.getAllUsers().subscribe( users => {
       this.listUsers = users; 
-      console.log(this.listUsers);
     });
   }
 }
