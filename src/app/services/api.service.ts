@@ -53,4 +53,8 @@ export class ApiService {
   public getAlbumPhotos(idAlbum:string):Observable<Photo[]>{
     return this.httpClient.get<Photo[]>(`${this.API_URL}/albums/${idAlbum}/photos`);
   }
+
+  public createPost(post:any):Observable<any>{
+    return this.httpClient.post<any>(`${this.API_URL}/posts`, post );
+  }
 }

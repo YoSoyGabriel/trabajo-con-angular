@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-new-post',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPostComponent implements OnInit {
 
-  constructor() { }
+  postForm:FormGroup; 
+  constructor(private ApiService:ApiService,
+              private formBuilder:FormBuilder,
+              private router:Router) { }
+
 
   ngOnInit(): void {
+    this.postForm = this.formBuilder.group({
+      title: new FormControl('', Validators.required),
+      body: new FormControl('', Validators.required),
+      userId: new  FormControl('1')
+    });
+  }
+
+
+  crearPost(data:any){
+    this.ApiService.createPost(data.value).subscribe(res => {
+        this.router.navigate(["/post"]);
+        console.log(res);
+    }); 
   }
 
 }

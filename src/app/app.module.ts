@@ -5,8 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatTableModule} from '@angular/material/table';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +16,7 @@ import { CommentsComponent } from './components/post/comments/comments.component
 import { UserComponent } from './components/user/user.component'; 
 import { UserDetalleComponent } from './components/user/user-detalle/user-detalle.component';
 import { NewPostComponent } from './components/post/new-post/new-post.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,12 +29,13 @@ import { NewPostComponent } from './components/post/new-post/new-post.component'
   imports: [
     BrowserModule,
     HttpClientModule, 
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
-    MatTableModule,
     MatProgressSpinnerModule,
-    MatIconModule, 
-    MatBadgeModule,
+    MatIconModule,  
     AppRoutingModule, BrowserAnimationsModule
   ],
   providers: [],

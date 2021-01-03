@@ -9,7 +9,7 @@ import { UserComponent } from './components/user/user.component';
 const routes: Routes = [
   {path: "", redirectTo: "/post", pathMatch: "full"},
   {path: 'post', children: [
-    {path: "list", component: PostComponent},
+    {path: "", component: PostComponent},
     {path:"create", component: NewPostComponent},
     {path:"comments/:id", component: CommentsComponent},
     {path: ":id", component: PostComponent}
