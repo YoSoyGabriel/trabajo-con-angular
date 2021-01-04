@@ -7,7 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-reporte',
   templateUrl: './reporte.component.html',
-  styleUrls: ['./reporte.component.css']
+  styleUrls: ['./reporte.component.scss']
 })
 export class ReporteComponent implements OnInit,  OnDestroy  {
 
